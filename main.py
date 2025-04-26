@@ -46,8 +46,8 @@ tb.variables["0"]["layer2"] = 200
 tb.variables["0"]["layer3"] = 200
 tb.variables["0"]["layer4"] = 20
 
-tb.initialize_nn(["0"])
+tb.initialize_nn("0")
 
-tb.nn_run(["0"])
+tb.nn_run("0")
 
 print(tb.variables["layer4n"])
