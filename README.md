@@ -1,2 +1,2 @@
 # some-silly-code
-meh, just some silly code, no purpose
+cant believe im revealing the source code of my AI just to win some argument wtf
