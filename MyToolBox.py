@@ -47,19 +47,20 @@ def radians(input):
     return input/(3.14 / 180.0)
 
 def initialize_nn(id):
-    variables[id]
-    for i in range(1, variables[id]["layers"]):
+    stuff = variables[id]
+    for i in range(1, stuff["layers"]):
         v = "weights" + str(i) + str(i+1)
         v2 = "layer" + str(i)
         v3 = "layer" + str(i+1)
-        variables[id][v] = [0] * (variables[v2] * variables[id][v3])
-    for i in range(1, variables[id]["layers"]+1):
+        stuff[v] = [0] * (stuff[v2] * stuff[v3])
+    for i in range(1, stuff["layers"]+1):
         v = str(i)
         vv = "layer" + v
         w = "biases" + v
-        variables[id][w] = [0] * variables[id][vv]
-    for i in range(1, variables[id]["layers"]+1):
-        variables[id]["layer"+str(i)+"n"] = [0] * variables[id]["layer"+str(i)]
+        stuff[w] = [0] * stuff[vv]
+    for i in range(1, stuff["layers"]+1):
+        stuff["layer"+str(i)+"n"] = [0] * stuff["layer"+str(i)]
+    variables[id] = stuff
 
 def activation(input):
     #relu
@@ -87,3 +88,4 @@ def nn_run(id):
             stuff["temp"][jz] = stuff["layer"+str(i+1)+"n"][jy] * z
         stuff["layer"+str(i+2)+"n"] = activation([x - y for x, y in zip(stuff["temp"], stuff["biases"+str(i+2)])])
     del stuff["temp"]
+    variables[id] = stuff
